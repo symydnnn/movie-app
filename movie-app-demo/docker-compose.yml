@@ -3,7 +3,7 @@ services:
   my-movie-app-db:
     image: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=170420846Sa!
+      - MYSQL_ROOT_PASSWORD=****
       - MYSQL_DATABASE=filmapp
   redis-server:
     hostname: redis
