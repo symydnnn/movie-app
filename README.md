@@ -98,6 +98,9 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 
 ![entity_relation.PNG](entity_relation.PNG)
 
+## DOCKER
+
+![dockerize.PNG](dockerize.PNG)
 
 ## POSTMAN COLLECTION
 
