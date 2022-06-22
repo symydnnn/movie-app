@@ -2,7 +2,9 @@
 ***ŞEYMA AYDIN***  
 
 While developing this project, Spring Boot, Cache, Dockerize and MySQL technologies were used.
+
 ## Technologies & Tools
+
 - Java 17
 - Maven
 - Spring Boot 2.7.0
@@ -13,9 +15,11 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 - JUnit
 
 ## API List
+
 ***Port : localhost:8080***
 
 ### MOVIE
+
 - Movie List
     - /api/movie                : ***GET***
     
@@ -52,8 +56,8 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 }        
 ```
 
-
 ### CATEGORY
+
 - Category List
     - /api/category         : ***GET***
     
@@ -78,6 +82,7 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 ```
     
 ## PLANNING
+
 - Cache memory is cleared by refreshing the project 5 times
 - The category information is also displayed while the Movie List is displayed.
 - When creating a movie recording, ID should be defined for category.
@@ -88,12 +93,20 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 - Movie and categories can be updated in JSON format. If all information is entered, NULL value will not be returned.
 - Movie recording can be deleted with ID. 
 
-## POSTMAN
+
+
+
+## POSTMAN COLLECTION
+
 ![image.PNG](image.PNG)
 
-![image2.PNG](image3.PNG)
+![image2.PNG](image2.PNG)
 
-![image4.PNG](image5.PNG)
+![image3.PNG](image3.PNG)
+
+![image5.PNG](image5.PNG)
+
 
 ## Entity Relation
+
 ![entity_relation.PNG](entity_relation.PNG)
