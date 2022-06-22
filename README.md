@@ -104,9 +104,6 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 
 ![image3.PNG](image3.PNG)
 
-![image5.PNG](image5.PNG)
-
-
 ## Entity Relation
 
 ![entity_relation.PNG](entity_relation.PNG)
