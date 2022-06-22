@@ -18,18 +18,18 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 
 ***Port : localhost:8080***
 
-### MOVIE
+#### MOVIE
 
 - Movie List
     - /api/movie                : ***GET***
     
-- Movie By ID
+- Movie by ID
     - /api/movie/id/{id}        : ***GET***
     
-- Movie By Name
+- Movie by Name
     - /api/movie/name           : ***GET***
     
-- Movie With CategoryId
+- Movie with CategoryId
     - /api/movie/categories     : ***GET***
     
 - Add Movie
@@ -56,7 +56,7 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 }        
 ```
 
-### CATEGORY
+#### CATEGORY
 
 - Category List
     - /api/category         : ***GET***
