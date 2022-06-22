@@ -17,28 +17,28 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 
 ### MOVIE
 - Movie List
-    - /api/movie            : ***GET***
+    - /api/movie                : ***GET***
     
 - Movie By ID
-    - /api/movie/id/{id}    : ***GET***
+    - /api/movie/id/{id}        : ***GET***
     
 - Movie By Name
-    - /api/movie/name       : ***GET***
+    - /api/movie/name           : ***GET***
     
 - Movie With CategoryId
-    - /api/movie/categories : ***GET***
+    - /api/movie/categories     : ***GET***
     
 - Add Movie
-    - /api/movie            : ***POST***
+    - /api/movie                : ***POST***
     
 - Update Movie
-    - /api/movie            : ***PUT***
+    - /api/movie                : ***PUT***
     
 - Update Movie Amount
-    - /api/movie/update     : ***PUT***
+    - /api/movie/update         : ***PUT***
     
 - Delete Movie
-    - /api/movie            : ***DEL***
+    - /api/movie                : ***DEL***
 ```
 {
     "id": 4,
@@ -92,8 +92,6 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 ![image.PNG](image.PNG)
 
 ![image2.PNG](image3.PNG)
-
-![image3.PNG](image4.PNG)
 
 ![image4.PNG](image5.PNG)
 
