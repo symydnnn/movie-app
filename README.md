@@ -94,6 +94,9 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 - Movie recording can be deleted with ID. 
 
 
+## DATABASE Entity Relation
+
+![entity_relation.PNG](entity_relation.PNG)
 
 
 ## POSTMAN COLLECTION
@@ -103,7 +106,3 @@ While developing this project, Spring Boot, Cache, Dockerize and MySQL technolog
 ![image2.PNG](image2.PNG)
 
 ![image3.PNG](image3.PNG)
-
-## Entity Relation
-
-![entity_relation.PNG](entity_relation.PNG)
