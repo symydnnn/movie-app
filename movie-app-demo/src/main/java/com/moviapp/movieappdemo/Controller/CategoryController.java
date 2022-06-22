@@ -1,10 +1,7 @@
 package com.moviapp.movieappdemo.Controller;
 
 import com.moviapp.movieappdemo.Model.Category;
-import com.moviapp.movieappdemo.Model.Movie;
 import com.moviapp.movieappdemo.Service.CategoryService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +11,9 @@ import java.util.List;
 public class CategoryController {
 
     CategoryService categoryService;
+
+    int categorysayac = 0;
+
 
     public CategoryController(CategoryService categoryService)
     {
@@ -28,11 +28,15 @@ public class CategoryController {
     @GetMapping
     public List<Category> getCategories()
     {
+      if((categorysayac % 5) == 0){
+        categoryService.clearCache();
+      }
+      categorysayac++;
         return categoryService.getCategories();
     }
 
     @GetMapping("/{id}")
-    public Category getCategoryById(@RequestParam long id)
+    public Category getCategoryById(@PathVariable long id)
     {
         return categoryService.getCategorybyId(id);
     }
@@ -48,6 +52,5 @@ public class CategoryController {
     {
         categoryService.updateCategory(category);
     }
-
 
 }

@@ -4,27 +4,32 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "movie")
-public class Movie{
+public class Movie implements Serializable
+{
+  @Serial
+  private static final long serialVersionUID = 1712881272088835327L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(nullable = false)
-    private String name;
+  @Column(nullable = false)
+  private String name;
 
-    ///foreign key
-    @ManyToOne(cascade = CascadeType.MERGE) //persisten object error solved with merge
-    @JoinColumn(name = "id_category", referencedColumnName = "id" ,  nullable = false)
-    private Category category;
+  ///foreign key
+  @ManyToOne(cascade = CascadeType.MERGE) //object error solved with merge
+  @JoinColumn(name = "id_category", referencedColumnName = "id" ,  nullable = false)
+  private Category category;
 
-    private String director;
-    private double amount;
+  private String director;
+  private double amount;
 
 }

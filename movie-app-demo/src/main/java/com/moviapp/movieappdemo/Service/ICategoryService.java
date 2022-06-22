@@ -1,8 +1,6 @@
 package com.moviapp.movieappdemo.Service;
 
 import com.moviapp.movieappdemo.Model.Category;
-import com.moviapp.movieappdemo.Model.Movie;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -16,6 +14,7 @@ public interface ICategoryService {
 
     Category updateCategory(Category category);
 
-    List<Movie> findMoviesByCategoryName(String name);
+    Category getCategorybyId(Long id);
+
 
 }

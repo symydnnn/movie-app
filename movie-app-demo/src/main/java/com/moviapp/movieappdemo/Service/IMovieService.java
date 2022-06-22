@@ -4,18 +4,22 @@ import com.moviapp.movieappdemo.Model.Movie;
 
 import java.util.List;
 
-public interface IMovieService {
+public interface IMovieService
+{
+  List<Movie> getMovies();
 
-    List<Movie> getMovies();
+  Movie saveMovie(Movie movie);
 
-    Movie saveMovie(Movie movie) ;
+  boolean deleteMovie(Long id);
 
-    boolean deleteMovie(Long movie);
+  Movie updateMovie(Movie movie);
 
-    Movie updateMovie(Movie movie);
+  Movie updateMovieAmount(Long movieId, double amount);
 
-    void updateMovieAmount(Movie movie);
+  Movie getMovieByName(String name);
 
-    Movie findByName(String name);
+  Movie getMoviebyId(Long id);
+
+  List<Movie> findMoviesByCategoryId(Long categoryId);
 
 }
