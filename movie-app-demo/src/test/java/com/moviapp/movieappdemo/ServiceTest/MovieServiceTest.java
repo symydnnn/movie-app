@@ -1,10 +1,9 @@
 package com.moviapp.movieappdemo.ServiceTest;
 
 
+import com.moviapp.movieappdemo.DTO.MovieDTO;
 import com.moviapp.movieappdemo.Model.Movie;
 import com.moviapp.movieappdemo.Repository.IMovieRepository;
-import com.moviapp.movieappdemo.Service.CategoryService;
-import com.moviapp.movieappdemo.Service.ICategoryService;
 import com.moviapp.movieappdemo.Service.MovieService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.Test;
@@ -14,11 +13,8 @@ import static org.mockito.Mockito.when;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -28,9 +24,6 @@ public class MovieServiceTest
 {
   @Autowired
   MovieService movieService;
-
-  @Autowired
-  CategoryService categoryService;
 
   @Mock
   private IMovieRepository movieRepository;
@@ -69,13 +62,13 @@ public class MovieServiceTest
   public void saveMovie()
   {
     long categoryId = 1;
-    Movie movie = new Movie();
-    movie.setName("The Haunting of Hill House");
-    movie.setDirector("Mike Flanagan");
-    movie.setCategory(categoryService.getCategorybyId(categoryId));
-    movie.setAmount(15);
-    Movie newMovie = movieService.saveMovie(movie);
-    Assertions.assertEquals(0,movie.getId().toString().isEmpty());
+    MovieDTO movieDTO = new MovieDTO();
+    movieDTO.setName("The Haunting of Hill House");
+    movieDTO.setDirector("Mike Flanagan");
+    //movieDTO.setCategory(categoryService.getCategorybyId(categoryId));
+    movieDTO.setAmount(15);
+    MovieDTO newMovieDTO = movieService.saveMovie(movieDTO);
+    Assertions.assertEquals(0,newMovieDTO.getId().toString().isEmpty());
   }
 
   @Test
@@ -89,15 +82,14 @@ public class MovieServiceTest
   @Test
   public void updateMovie()
   {
-    Movie movie = new Movie();
+    MovieDTO movieDTO = new MovieDTO();
     long id = 1;
-    movie.setId(id);
-    movie.setName("Ayşecik");
-    movie.setDirector("Kemal Sunal");
-    movie.setCategory(categoryService.getCategorybyId(id));
-    movie.setAmount(15);
-    Movie newMovie = movieService.updateMovie(movie);
-    Assertions.assertEquals(0,newMovie.getId().toString().isEmpty());
+    movieDTO.setId(id);
+    movieDTO.setName("Ayşecik");
+    movieDTO.setDirector("Kemal Sunal");
+    movieDTO.setAmount(15);
+    MovieDTO newMovieDTO = movieService.updateMovie(movieDTO);
+    Assertions.assertEquals(0,newMovieDTO.getId().toString().isEmpty());
   }
 
   @Test

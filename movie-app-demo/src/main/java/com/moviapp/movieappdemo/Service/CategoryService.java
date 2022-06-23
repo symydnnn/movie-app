@@ -1,10 +1,13 @@
 package com.moviapp.movieappdemo.Service;
 
+import com.moviapp.movieappdemo.DTO.CategoryDTO;
+import com.moviapp.movieappdemo.DTO.MovieDTO;
 import com.moviapp.movieappdemo.Exception.ResourceNotFoundException;
 import com.moviapp.movieappdemo.Model.Category;
 import com.moviapp.movieappdemo.Model.Movie;
 import com.moviapp.movieappdemo.Repository.ICategoryRepository;
 import com.moviapp.movieappdemo.Repository.IMovieRepository;
+import com.moviapp.movieappdemo.Util.MappingHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -29,27 +32,31 @@ public class CategoryService implements ICategoryService
 
   @Override
   @Cacheable(value = REDIS_CACHE_VALUE)
-  public List<Category> getCategories()
+  public List<CategoryDTO> getCategories()
   {
-    return categoryRepository.findAll();
+    List<Category> categoryList = categoryRepository.findAll();
+
+    return MappingHelper.mapList(categoryList, CategoryDTO.class);
   }
 
   @Override
   @CachePut(value = REDIS_CACHE_VALUE, key = "#id")
-  public Category getCategorybyId(Long id)
+  public CategoryDTO getCategorybyId(Long id)
   {
-    Category c = getCategories().stream().filter(p -> p.getId() == id).findFirst().orElse(null);
-    if(c == null){
+    CategoryDTO categoryDTO = getCategories().stream().filter(p -> p.getId() == id).findFirst().orElse(null);
+    if(categoryDTO == null){
       throw new ResourceNotFoundException("ID'ye sahip kategori bulunamadi.");
     }
-    return c;
+    return categoryDTO;
   }
 
   @Override
-  @CachePut(value = REDIS_CACHE_VALUE, key = "#category.id")
-  public Category saveCategory(Category category)
+  @CachePut(value = REDIS_CACHE_VALUE, key = "#categoryDTO.categoryType")
+  public CategoryDTO saveCategory(CategoryDTO categoryDTO)
   {
-    return categoryRepository.save(category);
+    Category category = MappingHelper.map(categoryDTO, Category.class);
+    Category result = categoryRepository.save(category);
+    return MappingHelper.map(result, CategoryDTO.class);
   }
 
   @Override
@@ -75,12 +82,12 @@ public class CategoryService implements ICategoryService
   }
 
   @Override
-  @CachePut(value = REDIS_CACHE_VALUE, key = "#category.id")
-  public Category updateCategory(Category category)
+  @CachePut(value = REDIS_CACHE_VALUE, key = "#categoryDTO.categoryType")
+  public CategoryDTO updateCategory(CategoryDTO categoryDTO)
   {
-    if (categoryRepository.existsById(category.getId()))
+    if (categoryRepository.existsById(categoryDTO.getId()))
     {
-      return categoryRepository.save(category);
+      return saveCategory(categoryDTO);
     }
     throw new ResourceNotFoundException("Kategori bulunamadı.");
   }

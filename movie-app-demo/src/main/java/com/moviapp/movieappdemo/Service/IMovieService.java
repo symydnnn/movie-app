@@ -1,25 +1,25 @@
 package com.moviapp.movieappdemo.Service;
 
-import com.moviapp.movieappdemo.Model.Movie;
+import com.moviapp.movieappdemo.DTO.MovieDTO;
 
 import java.util.List;
 
 public interface IMovieService
 {
-  List<Movie> getMovies();
+  List<MovieDTO> getMovies();
 
-  Movie saveMovie(Movie movie);
+  MovieDTO saveMovie(MovieDTO movieDTO);
 
   boolean deleteMovie(Long id);
 
-  Movie updateMovie(Movie movie);
+  MovieDTO updateMovie(MovieDTO movieDTO);
 
-  Movie updateMovieAmount(Long movieId, double amount);
+  MovieDTO updateMovieAmount(Long movieId, double amount);
 
-  Movie getMovieByName(String name);
+  MovieDTO getMovieByName(String name);
 
-  Movie getMoviebyId(Long id);
+  MovieDTO getMoviebyId(Long id);
 
-  List<Movie> findMoviesByCategoryId(Long categoryId);
+  List<MovieDTO> findMoviesByCategoryId(Long categoryId);
 
 }

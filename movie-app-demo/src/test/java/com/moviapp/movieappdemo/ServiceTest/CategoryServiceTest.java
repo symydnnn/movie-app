@@ -1,5 +1,6 @@
 package com.moviapp.movieappdemo.ServiceTest;
 
+import com.moviapp.movieappdemo.DTO.CategoryDTO;
 import com.moviapp.movieappdemo.Model.Category;
 import com.moviapp.movieappdemo.Repository.ICategoryRepository;
 import com.moviapp.movieappdemo.Service.CategoryService;
@@ -49,9 +50,9 @@ public class CategoryServiceTest
   @Test
   public void saveCategory()
   {
-    Category category = new Category();
-    category.setCategoryType("Korku");
-    Assertions.assertEquals(false,categoryService.saveCategory(category).getId().toString().isEmpty());
+    CategoryDTO categoryDTO = new CategoryDTO();
+    categoryDTO.setCategoryType("Korku");
+    Assertions.assertEquals(false,categoryService.saveCategory(categoryDTO).getId().toString().isEmpty());
 
   }
 
@@ -66,10 +67,10 @@ public class CategoryServiceTest
   @Test
   public void updateCategory()
   {
-    Category category = new Category();
-    category.setId(1L);
-    category.setCategoryType("Şiddet");
-    Assertions.assertEquals(false,categoryService.updateCategory(category).getId().toString().isEmpty());
+    CategoryDTO categoryDTO = new CategoryDTO();
+    categoryDTO.setId(1L);
+    categoryDTO.setCategoryType("Şiddet");
+    Assertions.assertEquals(false,categoryService.updateCategory(categoryDTO).getId().toString().isEmpty());
 
   }
 

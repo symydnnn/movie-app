@@ -1,5 +1,6 @@
 package com.moviapp.movieappdemo.Controller;
 
+import com.moviapp.movieappdemo.DTO.MovieDTO;
 import com.moviapp.movieappdemo.Model.Movie;
 import com.moviapp.movieappdemo.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,13 @@ public class MovieController
 
   @PostMapping("movie")
   @ResponseBody
-  public Movie saveMovie(@RequestBody Movie movie)
+  public MovieDTO saveMovie(@RequestBody MovieDTO movieDTO)
   {
-    return movieService.saveMovie(movie);
+    return movieService.saveMovie(movieDTO);
   }
 
   @GetMapping("movie")
-  public List<Movie> getMovies()
+  public List<MovieDTO> getMovies()
   {
     if((sayac %5 )== 0){
       movieService.clearCache();
@@ -39,13 +40,13 @@ public class MovieController
   }
 
   @GetMapping("movie/id/{id}")
-  public Movie getMovieById(@PathVariable long id)
+  public MovieDTO getMovieById(@PathVariable long id)
   {
     return movieService.getMoviebyId(id);
   }
 
   @GetMapping("movie/name")
-  public Movie getMovieByName(@RequestParam String name)
+  public MovieDTO getMovieByName(@RequestParam String name)
   {
     return movieService.getMovieByName(name);
   }
@@ -59,9 +60,9 @@ public class MovieController
   }
 
   @PutMapping("movie")
-  public void updateMovie(@RequestBody Movie movie)
+  public void updateMovie(@RequestBody MovieDTO movieDTO)
   {
-    movieService.updateMovie(movie);
+    movieService.updateMovie(movieDTO);
   }
 
   @PutMapping("movie/amount")
@@ -70,7 +71,7 @@ public class MovieController
   }
 
   @GetMapping("movie/categories")
-  public List<Movie> findMoviesByCategoryId(@RequestParam long categoryId){
+  public List<MovieDTO> findMoviesByCategoryId(@RequestParam long categoryId){
     return movieService.findMoviesByCategoryId(categoryId);}
 
 

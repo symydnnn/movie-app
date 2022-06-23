@@ -1,20 +1,20 @@
 package com.moviapp.movieappdemo.Service;
 
-import com.moviapp.movieappdemo.Model.Category;
+import com.moviapp.movieappdemo.DTO.CategoryDTO;
 
 import java.util.List;
 
 public interface ICategoryService {
 
-    List<Category> getCategories();
+    List<CategoryDTO> getCategories();
 
-    Category saveCategory(Category category);
+    CategoryDTO saveCategory(CategoryDTO categoryDTO);
 
     boolean deleteCategory(Long category);
 
-    Category updateCategory(Category category);
+    CategoryDTO updateCategory(CategoryDTO categoryDTO);
 
-    Category getCategorybyId(Long id);
+    CategoryDTO getCategorybyId(Long id);
 
 
 }
