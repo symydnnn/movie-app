@@ -1,8 +1,8 @@
 package com.moviapp.movieappdemo.Controller;
 
 import com.moviapp.movieappdemo.DTO.CategoryDTO;
-import com.moviapp.movieappdemo.Model.Category;
 import com.moviapp.movieappdemo.Service.CategoryService;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,8 +11,7 @@ import java.util.List;
 @RequestMapping("/api/category")
 public class CategoryController {
 
-   @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     int categorysayac = 0;
 
